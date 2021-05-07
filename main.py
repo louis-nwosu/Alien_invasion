@@ -32,8 +32,8 @@ class Alien_invasion:
                 for bullet in self.bullets.copy():
                     if bullet.rect.bottom <= 0:
                         self.bullets.remove(bullet)
-                collisions = pygame.sprite.groupcollide(self.bullets, self.aliens,
-                                                    True, True)
+                collisions = pygame.sprite.groupcollide(
+                    self.bullets, self.aliens, True, True)
                 if not self.aliens:
                     self.bullets.empty()
                     self._create_fleet()
@@ -61,7 +61,7 @@ class Alien_invasion:
                     self.ship.moving_left = False
 
     def _update_screen(self):
-        self.play_button.draw_button()    
+        self.play_button.draw_button()
         self.screen.fill(self.settings.bg_color)
         self.ship.blitme()
         for bullet in self.bullets.sprites():
@@ -78,7 +78,7 @@ class Alien_invasion:
             self._create_fleet()
             self.ship.center_ship()
             sleep(1.0)
-        else: 
+        else:
             self.stat.game_active = False
 
     def _create_fleet(self):
